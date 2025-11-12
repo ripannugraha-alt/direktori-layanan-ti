@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Direktori Layanan TI & Workshop Komputer</title>
+  <link rel="icon" href="images/icon.png">
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- ===== HEADER NAVBAR ===== -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-xl sm:text-2xl font-bold text-blue-700">
+        Direktori Layanan TI
+      </h1>
+      <nav class="hidden sm:flex gap-6 text-sm text-gray-600">
+        <a href="#" class="hover:text-blue-600">Beranda</a>
+        <a href="#" class="hover:text-blue-600">Tentang</a>
+        <a href="#" class="hover:text-blue-600">Kontak</a>
+      </nav>
+      <button class="sm:hidden p-2 border rounded text-gray-600 hover:text-blue-700">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+    <div class="max-w-6xl mx-auto text-center py-16 px-4">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Temukan Bengkel & Workshop Komputer di Sekitarmu</h2>
+      <p class="text-blue-100 max-w-2xl mx-auto">
+        Direktori ini membantu kamu mencari layanan teknologi informasi — seperti servis komputer, pelatihan IT, dan workshop profesional di kota kamu.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== SEARCH & FILTER ===== -->
+  <section class="max-w-6xl mx-auto mt-8 px-4">
+    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center">
+      <input id="searchInput" 
+             type="text" 
+             placeholder="Cari nama layanan atau kata kunci..." 
+             class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+      <select id="categorySelect" 
+              class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <option value="">Semua Kategori</option>
+        <option value="Hardware">Hardware</option>
+        <option value="Software">Software</option>
+        <option value="Training">Training</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- ===== GRID LIST ===== -->
+  <main class="max-w-6xl mx-auto mt-8 px-4 pb-20">
+    <div id="servicesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Data layanan akan muncul di sini lewat JS -->
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-white border-t py-6 mt-10">
+    <div class="max-w-6xl mx-auto text-center text-sm text-gray-600">
+      © 2025 Direktori Layanan TI. Dibuat oleh <span class="font-semibold">Ripan Nugraha</span>.
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // Fungsi memuat data dari services.json
+    async function loadServices() {
+      const res = await fetch("services.json");
+      const data = await res.json();
+      const grid = document.getElementById("servicesGrid");
+
+      function render(list) {
+        grid.innerHTML = list.map(item => `
+          <a href="service.html?id=${item.id}" 
+             class="block bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-5">
+            <img src="${item.image}" alt="${item.name}" class="w-full h-40 object-cover rounded-lg mb-3">
+            <h3 class="font-semibold text-lg text-blue-700">${item.name}</h3>
+            <p class="text-sm text-gray-500 mb-2">${item.category} • ${item.address}</p>
+            <p class="text-sm text-gray-700">${item.short}</p>
+          </a>
+        `).join("");
+      }
+
+      // Render awal
+      render(data);
+
+      // Fitur pencarian dan filter
+      const searchInput = document.getElementById("searchInput");
+      const categorySelect = document.getElementById("categorySelect");
+
+      function applyFilter() {
+        const keyword = searchInput.value.toLowerCase();
+        const category = categorySelect.value;
+        const filtered = data.filter(item => {
+          const matchKeyword = item.name.toLowerCase().includes(keyword) ||
+                               item.short.toLowerCase().includes(keyword) ||
+                               item.description.toLowerCase().includes(keyword);
+          const matchCategory = category === "" || item.category === category;
+          return matchKeyword && matchCategory;
+        });
+        render(filtered);
+      }
+
+      searchInput.addEventListener("input", applyFilter);
+      categorySelect.addEventListener("change", applyFilter);
+    }
+
+    loadServices();
+  </script>
+
+</body>
+</html>

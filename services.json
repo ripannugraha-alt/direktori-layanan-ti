@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "name": "Bengkel Komputer Jaya",
+    "category": "Hardware",
+    "short": "Servis laptop & PC dengan teknisi berpengalaman.",
+    "description": "Bengkel Komputer Jaya melayani servis motherboard, upgrade RAM, pemasangan SSD, dan pembersihan total perangkat komputer. Garansi pengerjaan tersedia hingga 30 hari.",
+    "address": "Jl. Merdeka No.12, Bandung",
+    "hours": "Senin - Sabtu, 08.00 - 17.00",
+    "contact": "0812-3456-7890",
+    "image": "images/bengkel-jaya.jpg"
+  },
+  {
+    "id": 2,
+    "name": "TechFix Service Center",
+    "category": "Software",
+    "short": "Layanan instalasi dan perbaikan software PC/laptop.",
+    "description": "TechFix Service Center menyediakan jasa instalasi ulang, recovery data, update sistem operasi, dan perbaikan software. Spesialis Windows & macOS.",
+    "address": "Jl. Sukajadi No.22, Bandung",
+    "hours": "Senin - Jumat, 09.00 - 18.00",
+    "contact": "0851-2345-6789",
+    "image": "images/techfix.jpg"
+  },
+  {
+    "id": 3,
+    "name": "IT Training Center Bandung",
+    "category": "Training",
+    "short": "Kursus intensif pemrograman & jaringan komputer.",
+    "description": "IT Training Center menawarkan kelas coding HTML, PHP, dan Jaringan Komputer untuk siswa SMK & umum. Kelas reguler dan privat tersedia.",
+    "address": "Jl. Braga No.45, Bandung",
+    "hours": "Setiap Hari, 09.00 - 16.00",
+    "contact": "0813-2222-5555",
+    "image": "images/training.jpg"
+  },
+  {
+    "id": 4,
+    "name": "SmartLab Computer",
+    "category": "Hardware",
+    "short": "Spesialis rakit PC, upgrade komponen, dan servis ringan.",
+    "description": "SmartLab Computer menyediakan layanan custom PC build, perawatan komponen, serta konsultasi kebutuhan perangkat sesuai budget dan tujuan penggunaan.",
+    "address": "Jl. Gatot Subroto No.90, Bandung",
+    "hours": "Senin - Minggu, 10.00 - 19.00",
+    "contact": "0815-8888-9999",
+    "image": "images/smartlab.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Digital Workshop",
+    "category": "Training",
+    "short": "Workshop komputer dan pelatihan digital marketing.",
+    "description": "Digital Workshop mengadakan pelatihan singkat tentang desain grafis, pembuatan website dasar, dan strategi pemasaran digital. Cocok untuk siswa dan UMKM.",
+    "address": "Jl. Setiabudi No.30, Bandung",
+    "hours": "Sabtu - Minggu, 08.00 - 15.00",
+    "contact": "0819-5678-4321",
+    "image": "images/digitalworkshop.jpg"
+  }
+]
