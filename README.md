@@ -9,7 +9,7 @@ Proyek ini menampilkan direktori (daftar) layanan Teknologi Informasi seperti be
 Banyak masyarakat dan siswa kesulitan mencari tempat servis komputer, pelatihan, atau workshop IT yang terpercaya.
 Website ini membantu menampilkan informasi tersebut dalam satu tempat yang mudah diakses.
 
-### 🎯 Tujuan
+### 🎯 Target
 Memberikan kemudahan bagi pengguna dalam mencari layanan TI di kota mereka berdasarkan kategori:
 - **Hardware**: servis & rakit PC/laptop  
 - **Software**: instalasi & perbaikan sistem  
