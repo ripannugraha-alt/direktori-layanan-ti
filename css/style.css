@@ -1,0 +1,138 @@
+/* ============================================
+   STYLE.CSS
+   Desain modern untuk Direktori & Workshop TI
+   Dibuat oleh Ripan Nugraha
+   ============================================ */
+
+/* ===== Font & Dasar ===== */
+body {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+  color: #1e293b;
+}
+
+/* ===== Efek Smooth Scroll ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Navbar Modern ===== */
+header {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+header.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Animasi Fade In ===== */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Card Hover Effect ===== */
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Skeleton Loader ===== */
+.skeleton {
+  border-radius: 0.75rem;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+/* ===== Tombol Animasi ===== */
+button,
+a.btn {
+  transition: all 0.3s ease;
+}
+button:hover,
+a.btn:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+/* ===== Hero Section ===== */
+.hero-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg::before,
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  filter: blur(120px);
+}
+.hero-bg::before {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+}
+.hero-bg::after {
+  width: 400px;
+  height: 400px;
+  bottom: -150px;
+  left: -150px;
+}
+
+/* ===== Workshop Card ===== */
+.workshop-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+.workshop-card:hover {
+  border-color: #06b6d4;
+  box-shadow: 0 10px 25px rgba(6, 182, 212, 0.15);
+  transform: translateY(-5px);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #0f172a;
+  color: #cbd5e1;
+}
+footer a:hover {
+  color: #06b6d4;
+  transition: color 0.3s ease;
+}
+
+/* ===== Scrollbar Custom (opsional bonus) ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}

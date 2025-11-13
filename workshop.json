@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Web Development Dasar",
+    "description": "Pelatihan intensif 3 hari untuk mempelajari HTML, CSS, dan dasar Tailwind CSS. Cocok untuk pemula yang ingin memahami pembuatan website modern.",
+    "date": "25-27 November 2025",
+    "time": "09.00 - 15.00",
+    "mentor": "Ripan Nugraha",
+    "location": "Coworking Space Sumedang",
+    "rating": 4.9,
+    "image": "images/workshop-web.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Manajemen Database",
+    "description": "Pelajari SQL, manajemen server, dan optimasi performa database untuk proyek nyata.",
+    "date": "5-6 Desember 2025",
+    "time": "08.00 - 16.00",
+    "mentor": "Aditiya Pratama",
+    "location": "SMKN 1 Sumedang",
+    "rating": 4.8,
+    "image": "images/workshop-db.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Jaringan Komputer",
+    "description": "Workshop 2 hari untuk memahami topologi jaringan, IP addressing, dan keamanan jaringan dasar.",
+    "date": "10-11 Desember 2025",
+    "time": "08.30 - 16.30",
+    "mentor": "Dewi Ramadhani",
+    "location": "Lab Komputer UNPAD Jatinangor",
+    "rating": 4.7,
+    "image": "images/workshop-network.jpg"
+  }
+]

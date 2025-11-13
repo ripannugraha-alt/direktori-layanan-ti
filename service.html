@@ -1,93 +1,133 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detail Layanan | Direktori Layanan TI</title>
-  <link rel="icon" href="images/icon.png">
-
-  <!-- Tailwind CSS -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Layanan | Direktori & Workshop Teknologi</title>
+  <link rel="icon" href="images/icon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Custom Tailwind Config -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#2563eb',
-            secondary: '#1e40af'
+            primary: '#0f172a',
+            accent: '#06b6d4',
+            light: '#f8fafc',
           }
         }
       }
-    }
+    };
   </script>
 
   <style>
+    .fade-in { animation: fadeIn 0.6s ease-in-out; }
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(15px);} to {opacity: 1; transform: translateY(0);} }
     * { scroll-behavior: smooth; }
-
-    .fade-in {
-      animation: fadeIn 0.6s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .rating i { color: #fbbf24; } /* warna bintang kuning */
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-gray-50 to-blue-50 text-gray-800">
+<body class="bg-light text-gray-800">
 
-  <!-- ===== HEADER ===== -->
-  <header class="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-gray-100">
-    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-      <a href="index.html" class="flex items-center gap-2 text-primary font-bold text-lg">
-        <i class="fas fa-laptop-code text-blue-600 text-xl"></i>
-        Direktori Layanan TI
+  <!-- ===== NAVBAR ===== -->
+  <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-gradient-to-br from-primary to-accent p-2.5 rounded-lg shadow-md">
+          <i class="fas fa-microchip text-white text-xl"></i>
+        </div>
+        <h1 class="text-xl sm:text-2xl font-bold text-primary">Direktori & Workshop Teknologi</h1>
+      </div>
+      <a href="index.html" class="text-sm bg-accent text-white px-4 py-2 rounded-lg hover:opacity-90 transition">
+        <i class="fas fa-arrow-left"></i> Kembali
       </a>
-      <nav class="hidden sm:flex gap-6 text-sm font-medium">
-        <a href="index.html" class="hover:text-blue-600">Beranda</a>
-        <a href="#kontak" class="hover:text-blue-600">Kontak</a>
-      </nav>
     </div>
   </header>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main class="max-w-5xl mx-auto mt-10 px-6">
-    <!-- Data layanan akan muncul di sini -->
-    <div id="serviceDetail" class="fade-in"></div>
+  <!-- ===== DETAIL LAYANAN ===== -->
+  <main id="serviceDetail" class="max-w-5xl mx-auto px-6 py-16 fade-in">
+    <div class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-100">
 
-    <!-- Loading -->
-    <div id="loading" class="text-center text-gray-500 py-20">
-      <i class="fas fa-spinner fa-spin text-3xl mb-3"></i>
-      <p>Sedang memuat data layanan...</p>
-    </div>
+      <!-- Gambar Utama -->
+      <img id="serviceImage" src="images/default.jpg" alt="Service Image" class="w-full h-80 object-cover">
 
-    <!-- Error -->
-    <div id="errorMessage" class="hidden text-center py-20">
-      <div class="bg-red-100 text-red-700 inline-block px-5 py-3 rounded-lg">
-        <i class="fas fa-exclamation-circle"></i> Layanan tidak ditemukan.
-      </div>
-      <div class="mt-6">
-        <a href="index.html" class="bg-blue-600 text-white px-5 py-3 rounded-lg hover:bg-blue-700 transition">
-          <i class="fas fa-arrow-left"></i> Kembali ke Beranda
-        </a>
+      <div class="p-8">
+        <!-- Judul dan Rating -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+          <h2 id="serviceName" class="text-3xl font-bold text-primary"></h2>
+          <div class="rating flex items-center text-yellow-400 text-lg gap-1">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <span id="ratingValue" class="ml-2 text-gray-600 text-sm font-medium">4.2 / 5</span>
+          </div>
+        </div>
+
+        <!-- Kategori dan Deskripsi -->
+        <div class="mb-4">
+          <span id="serviceCategory" class="inline-block bg-accent/10 text-accent px-4 py-1.5 rounded-full text-sm font-medium mb-3"></span>
+          <p id="serviceDescription" class="text-gray-700 leading-relaxed"></p>
+        </div>
+
+        <!-- Informasi Tambahan -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6 text-gray-600">
+          <div><i class="fas fa-map-marker-alt text-accent"></i> <span id="serviceAddress"></span></div>
+          <div><i class="fas fa-clock text-accent"></i> <span id="serviceHours"></span></div>
+          <div><i class="fas fa-phone text-accent"></i> <span id="serviceContact"></span></div>
+          <div><i class="fas fa-envelope text-accent"></i> <a href="#" class="hover:text-accent">Hubungi via Email</a></div>
+        </div>
+
+        <!-- Studi Kasus / Insight -->
+        <div class="mt-10 bg-light border border-gray-100 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-primary mb-3"><i class="fas fa-lightbulb text-accent"></i> Studi Kasus & Solusi</h3>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            Layanan ini telah membantu lebih dari <strong>250 pelanggan</strong> dalam memperbaiki sistem komputer dan jaringan kantor.
+            Salah satu studi kasus terbaru adalah optimasi server internal di perusahaan startup Bandung, yang berhasil meningkatkan
+            performa jaringan sebesar <strong>45%</strong> dalam dua minggu.
+          </p>
+        </div>
+
+        <!-- Ulasan Singkat -->
+        <div class="mt-10">
+          <h3 class="text-xl font-bold text-primary mb-3"><i class="fas fa-comment-dots text-accent"></i> Ulasan Pelanggan</h3>
+          <div class="space-y-4">
+            <div class="bg-gray-50 border rounded-lg p-4">
+              <p class="text-sm italic text-gray-600">"Pelayanan cepat, ramah, dan hasil memuaskan! Laptop saya jadi jauh lebih cepat."</p>
+              <span class="block mt-2 text-xs text-gray-400">– Andi Pratama ★★★★☆</span>
+            </div>
+            <div class="bg-gray-50 border rounded-lg p-4">
+              <p class="text-sm italic text-gray-600">"Teknisi profesional dan bisa konsultasi langsung, recommended!"</p>
+              <span class="block mt-2 text-xs text-gray-400">– Siti Marlina ★★★★★</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol Aksi -->
+        <div class="mt-10 flex flex-wrap gap-4">
+          <button class="bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition">
+            <i class="fas fa-phone-alt"></i> Hubungi Sekarang
+          </button>
+          <button class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition">
+            <i class="fas fa-location-dot"></i> Lihat di Peta
+          </button>
+        </div>
       </div>
     </div>
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-20">
-    <div class="max-w-6xl mx-auto px-6 py-10 text-center text-gray-400 text-sm">
-      © 2025 Direktori Layanan TI. Dibuat oleh <span class="font-semibold text-white">Ripan Nugraha</span>.
+  <footer class="bg-primary text-gray-300 mt-20">
+    <div class="max-w-7xl mx-auto px-6 py-10 text-center border-t border-gray-700 text-sm">
+      © 2025 Ripan Nugraha | Direktori & Workshop Teknologi
     </div>
   </footer>
 
-  <!-- ===== EXTERNAL JS FILE ===== -->
   <script src="js/service.js"></script>
-  
 </body>
 </html>

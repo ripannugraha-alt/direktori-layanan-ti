@@ -45,13 +45,68 @@
   },
   {
     "id": 5,
-    "name": "Digital Workshop",
-    "category": "Training",
+    "name": "Digital Workshop Bandung",
+    "category": "Workshop",
     "short": "Workshop komputer dan pelatihan digital marketing.",
-    "description": "Digital Workshop mengadakan pelatihan singkat tentang desain grafis, pembuatan website dasar, dan strategi pemasaran digital. Cocok untuk siswa dan UMKM.",
+    "description": "Digital Workshop Bandung mengadakan pelatihan singkat tentang desain grafis, pembuatan website dasar, dan strategi pemasaran digital. Cocok untuk siswa dan UMKM.",
     "address": "Jl. Setiabudi No.30, Bandung",
     "hours": "Sabtu - Minggu, 08.00 - 15.00",
     "contact": "0819-5678-4321",
     "image": "images/digitalworkshop.jpg"
+  },
+  {
+    "id": 6,
+    "name": "LPKMA Sumedang Komputer",
+    "category": "Training",
+    "short": "Lembaga kursus komputer & desain grafis di Sumedang.",
+    "description": "LPKMA Sumedang membuka kelas komputer dasar hingga lanjutan termasuk desain grafis dan pemrograman web. Berlokasi di Jl. P. Geusan Ulun No.123, Sumedang.",
+    "address": "Jl. P. Geusan Ulun No.123, Sumedang",
+    "hours": "Senin - Sabtu, 09.00 - 17.00",
+    "contact": "0851-7991-8600",
+    "image": "images/lpkma-sumedang.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Ganesha Pratama Komputer & Digital",
+    "category": "Training",
+    "short": "Kursus komputer, akuntansi & marketing digital di Sumedang.",
+    "description": "Ganesha Pratama Komputer & Digital berada di Jl. Pangeran Santri No.78, Kotakulon, Kec. Sumedang Selatan. Menyediakan pelatihan satu tahun siap kerja dan kursus digital marketing.",
+    "address": "Jl. Pangeran Santri No.78, Kotakulon, Sumedang",
+    "hours": "Senin - Jumat, 08.30 - 16.30",
+    "contact": "0851-0071-5499",
+    "image": "images/ganesha-pratama.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Rumah IT Bandung",
+    "category": "Software",
+    "short": "Software house & konsultasi IT di Bandung.",
+    "description": "Rumah IT Bandung menyediakan layanan pengembangan web, aplikasi mobile, konsultasi IT dan maintenance perangkat. Beralamat di Bandung.",
+    "address": "Jl. Terusan Sutami I No.36, Sukagalih, Bandung",
+    "hours": "Senin - Jumat, 10.00 - 18.00",
+    "contact": "022-6614726",
+    "image": "images/rumahit.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Workshop Jaringan dan Server Bandung",
+    "category": "Hardware",
+    "short": "Perbaikan & instal jaringan serta server untuk UKM di Bandung.",
+    "description": "Workshop Jaringan dan Server Bandung melayani setup jaringan LAN/WAN, instalasi server, backup data dan keamanan cyber untuk UKM.",
+    "address": "Jl. Sukabirus No.58, Bandung",
+    "hours": "Senin - Sabtu, 09.00 - 17.00",
+    "contact": "0812-9999-1234",
+    "image": "images/workshop-jaringan.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Kursus TI Anak Muda Bandung",
+    "category": "Workshop",
+    "short": "Pelatihan coding dan robotics untuk remaja di Bandung.",
+    "description": "Kursus TI Anak Muda Bandung menyediakan kelas weekend untuk coding, robotics dan IoT bagi remaja. Lokasi di Bandung Barat.",
+    "address": "Komplek ITC Kebon Jeruk, Bandung Barat",
+    "hours": "Sabtu & Minggu, 10.00 - 14.00",
+    "contact": "0813-4444-2020",
+    "image": "images/kursus-ti-bandung.jpg"
   }
 ]

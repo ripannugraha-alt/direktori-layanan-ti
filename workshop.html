@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Workshop Teknologi</title>
+  <link rel="icon" href="images/icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0f172a',
+            accent: '#06b6d4',
+            light: '#f8fafc',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #f8fafc, #eef2f6);
+      scroll-behavior: smooth;
+    }
+    .fade-in { animation: fadeIn 0.6s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="bg-light text-gray-800">
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-gradient-to-br from-primary to-accent p-2.5 rounded-lg shadow-md">
+          <i class="fas fa-microchip text-white text-xl"></i>
+        </div>
+        <h1 class="text-xl sm:text-2xl font-bold text-primary">Direktori & Workshop Teknologi</h1>
+      </div>
+      <a href="index.html" class="text-sm bg-accent text-white px-4 py-2 rounded-lg hover:opacity-90 transition">
+        <i class="fas fa-arrow-left"></i> Kembali
+      </a>
+    </div>
+  </header>
+  
+  <!-- ===== DETAIL CONTAINER ===== -->
+  <main id="workshopDetail" class="max-w-6xl mx-auto mt-12 px-6"></main>
+
+  <footer class="text-center py-6 text-gray-500 text-sm mt-12 border-t border-gray-200">
+    © 2025 Ripan Nugraha | Direktori & Workshop Teknologi
+  </footer>
+
+  <script src="js/workshop.js"></script>
+</body>
+</html>

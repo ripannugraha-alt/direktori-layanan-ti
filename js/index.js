@@ -1,57 +1,126 @@
-// ===== FUNGSI MEMUAT DATA LAYANAN DARI services.json =====
-async function loadServices() {
-  try {
-    const res = await fetch("services.json");
-    const data = await res.json();
-    const grid = document.getElementById("servicesGrid");
-    const emptyState = document.getElementById("emptyState");
+/* =====================================================
+   INDEX SCRIPT
+   Ambil data dari services.json dan aktifkan fitur
+   pencarian serta filter kategori
+   ===================================================== */
+/* =====================================================
+   🔧 BURGER MENU & SCROLL KE FOOTER
+   ===================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-    // Fungsi untuk menampilkan daftar layanan di halaman
-    function render(list) {
-      grid.innerHTML = list.map(item => `
-        <div class="service-card bg-white rounded-2xl shadow-md hover:shadow-lg transition p-5 border border-gray-100 fade-in">
-          <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover rounded-xl mb-4">
-          <h3 class="font-semibold text-xl text-blue-700 mb-1">${item.name}</h3>
-          <p class="text-gray-600 text-sm mb-3">${item.category}</p>
-          <p class="text-gray-500 text-sm mb-4">${item.description}</p>
-          <a href="service.html?id=${item.id}" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">
-            Lihat Detail
-          </a>
-        </div>
-      `).join("");
-      emptyState.classList.toggle("hidden", list.length !== 0);
-    }
+  // Toggle tampil/sembunyi menu
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
 
-    // Render awal
-    render(data);
+  // Tutup menu setelah klik navigasi
+  const menuLinks = mobileMenu.querySelectorAll("a");
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
+  });
 
-    // ===== FILTER PENCARIAN =====
-    const searchInput = document.getElementById("searchInput");
-    const categorySelect = document.getElementById("categorySelect");
+  // Scroll halus ke bagian footer (tentang & kontak)
+  const tentangLinks = document.querySelectorAll('a[href="#tentang"], a[href="#kontak"]');
+  const footer = document.querySelector("footer");
 
-    function filterServices() {
-      const searchText = searchInput.value.toLowerCase();
-      const selectedCategory = categorySelect.value;
-      const filtered = data.filter(item => {
-        const matchText = item.name.toLowerCase().includes(searchText) || item.description.toLowerCase().includes(searchText);
-        const matchCategory = selectedCategory ? item.category === selectedCategory : true;
-        return matchText && matchCategory;
-      });
-      render(filtered);
-    }
-
-    searchInput.addEventListener("input", filterServices);
-    categorySelect.addEventListener("change", filterServices);
-
-  } catch (err) {
-    console.error("Gagal memuat data layanan:", err);
-  }
-}
-
-// ===== MENU MOBILE =====
-document.getElementById("mobileMenuBtn").addEventListener("click", () => {
-  document.getElementById("mobileMenu").classList.toggle("hidden");
+  tentangLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      footer.scrollIntoView({ behavior: "smooth" });
+    });
+  });
 });
 
-// ===== PANGGIL FUNGSI SAAT HALAMAN DIMUAT =====
-window.addEventListener("DOMContentLoaded", loadServices);
+
+   document.addEventListener("DOMContentLoaded", async () => {
+  const servicesGrid = document.getElementById("servicesGrid");
+  const searchInput = document.getElementById("searchInput");
+  const categorySelect = document.getElementById("categorySelect");
+
+  let servicesData = [];
+
+  try {
+    // Ambil data dari JSON
+    const response = await fetch("./services.json");
+    servicesData = await response.json();
+
+    renderServices(servicesData); // tampilkan awal
+  } catch (error) {
+    console.error("Gagal memuat data layanan:", error);
+    servicesGrid.innerHTML = `
+      <div class="col-span-full text-center text-gray-500 py-10">
+        <i class="fas fa-exclamation-circle text-red-400 text-2xl mb-3"></i>
+        <p>Gagal memuat data layanan. Pastikan file <b>services.json</b> tersedia.</p>
+      </div>
+    `;
+  }
+
+  // ==========================
+  // 🔍 Fungsi Pencarian & Filter
+  // ==========================
+  function filterServices() {
+    const keyword = searchInput.value.toLowerCase();
+    const selectedCategory = categorySelect.value;
+
+    const filtered = servicesData.filter(service => {
+      const matchKeyword =
+        service.name.toLowerCase().includes(keyword) ||
+        service.address.toLowerCase().includes(keyword) ||
+        service.category.toLowerCase().includes(keyword);
+
+      const matchCategory =
+        service.category.toLowerCase().includes(selectedCategory.toLowerCase())
+
+      return matchKeyword && matchCategory;
+    });
+
+    renderServices(filtered);
+  }
+
+  // Event Listener: real-time pencarian
+  searchInput.addEventListener("input", filterServices);
+  categorySelect.addEventListener("change", filterServices);
+
+  // ==========================
+  // 🎨 Fungsi Render Layanan
+  // ==========================
+  function renderServices(data) {
+    servicesGrid.innerHTML = "";
+
+    if (data.length === 0) {
+      servicesGrid.innerHTML = `
+        <div class="col-span-full text-center text-gray-500 py-10">
+          <i class="fas fa-search text-gray-400 text-3xl mb-3"></i>
+          <p>Tidak ada hasil ditemukan.</p>
+        </div>
+      `;
+      return;
+    }
+
+    data.forEach(service => {
+      const card = document.createElement("div");
+      card.className =
+        "card-hover bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition";
+
+      card.innerHTML = `
+        <img src="${service.image}" alt="${service.name}" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h3 class="text-lg font-semibold text-primary mb-1">${service.name}</h3>
+          <p class="text-sm text-gray-500 mb-3">${service.short}</p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">${service.category}</span>
+            <a href="service.html?id=${service.id}" class="text-accent font-semibold text-sm hover:underline">
+              Lihat Detail →
+            </a>
+          </div>
+        </div>
+      `;
+
+      servicesGrid.appendChild(card);
+    });
+  }
+});
