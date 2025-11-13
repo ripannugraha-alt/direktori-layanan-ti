@@ -107,35 +107,43 @@
   </section>
 
   <!-- ===== SEARCH & FILTER ===== -->
-  <section class="max-w-7xl mx-auto mt-12 px-6 fade-in">
-    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-      <h3 class="text-xl font-semibold text-primary mb-4 flex items-center gap-2">
-        <i class="fas fa-search text-accent"></i> Cari Layanan atau Workshop
-      </h3>
-      <div class="flex flex-col lg:flex-row gap-4">
-        <!-- Input pencarian -->
-        <div class="flex-1 relative">
-          <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-          <input id="searchInput" type="text" placeholder="Cari berdasarkan nama, lokasi, atau kategori..."
-            class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent transition" />
-        </div>
+<section class="w-full bg-[white]/5 py-10 px-6 fade-in">
+  <div class="max-w-7xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-lg border border-white/10 p-6">
+    <h3 class="text-xl font-semibold text-black mb-6 flex items-center gap-2">
+      <i class="fas fa-search text-accent"></i> Cari Layanan atau Workshop
+    </h3>
 
-        <!-- Dropdown kategori -->
-        <div class="relative w-full lg:w-64">
-          <i class="fas fa-filter absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-          <select id="categorySelect"
-            class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent transition appearance-none bg-white cursor-pointer">
-            <option value="">Semua Kategori</option>
-            <option value="Hardware">Hardware</option>
-            <option value="Software">Software</option>
-            <option value="Training">Training</option>
-            <option value="Workshop">Workshop</option>
-          </select>
-          <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-        </div>
+    <div class="flex flex-col lg:flex-row gap-4">
+      <!-- Input pencarian -->
+      <div class="flex-1 relative">
+        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"></i>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Cari berdasarkan nama, lokasi, atau kategori..."
+          class="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-300 bg-white/90 text-gray-800 focus:ring-2 focus:ring-accent transition"
+        />
+      </div>
+
+      <!-- Dropdown kategori -->
+      <div class="relative w-full lg:w-64">
+        <i class="fas fa-filter absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"></i>
+        <select
+          id="categorySelect"
+          class="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-300 bg-white/90 text-gray-800 focus:ring-2 focus:ring-accent transition appearance-none cursor-pointer"
+        >
+          <option value="">Semua Kategori</option>
+          <option value="Hardware">Hardware</option>
+          <option value="Software">Software</option>
+          <option value="Training">Training</option>
+          <option value="Workshop">Workshop</option>
+        </select>
+        <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- ===== SECTION LAYANAN ===== -->
   <section id="layanan" class="max-w-7xl mx-auto mt-16 px-6 fade-in">
@@ -201,12 +209,31 @@
         <p class="text-gray-400 mb-4 text-sm">
           Platform untuk menghubungkan masyarakat dengan penyedia layanan IT dan pelatihan digital terbaik.
         </p>
-        <div class="flex gap-3">
-          <a href="#" class="hover:text-accent"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="hover:text-accent"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="hover:text-accent"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="hover:text-accent"><i class="fab fa-whatsapp"></i></a>
-        </div>
+       <div class="flex gap-4 text-xl">
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/Ripan Nugraha" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="hover:text-accent transition-all duration-300">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/rpannrha_?igsh=MWFscTdiNGtvODNyOA==" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="hover:text-accent transition-all duration-300">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/qr/4VGUXYY2HWTKL1" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="hover:text-accent transition-all duration-300">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
       </div>
 
       <div>
@@ -220,7 +247,7 @@
       </div>
 
       <div>
-        <h5 class="text-white font-semibold mb-3">Hubungi Kami</h5>
+        <h5 class="text-white font-semibold mb-3">Hubungi Saya</h5>
         <p class="text-sm"><i class="fas fa-map-marker-alt text-accent"></i> Sumedang, Indonesia</p>
         <p class="text-sm"><i class="fas fa-phone text-accent"></i> 0858-6155-6201</p>
         <p class="text-sm"><i class="fas fa-envelope text-accent"></i> info@workshopti.id</p>
