@@ -8,7 +8,7 @@
     "address": "Jl. Merdeka No.12, Bandung",
     "hours": "Senin - Sabtu, 08.00 - 17.00",
     "contact": "0812-3456-7890",
-    "image": "images/bengkel-jaya.jpg"
+    "image": "assets/images/hardware1.JPG"
   },
   {
     "id": 2,
@@ -19,7 +19,7 @@
     "address": "Jl. Sukajadi No.22, Bandung",
     "hours": "Senin - Jumat, 09.00 - 18.00",
     "contact": "0851-2345-6789",
-    "image": "images/techfix.jpg"
+    "image": "assets/images/hardware2.JPG"
   },
   {
     "id": 3,
@@ -30,7 +30,7 @@
     "address": "Jl. Braga No.45, Bandung",
     "hours": "Setiap Hari, 09.00 - 16.00",
     "contact": "0813-2222-5555",
-    "image": "images/training.jpg"
+    "image": "assets/images/hardware3.JPG"
   },
   {
     "id": 4,
@@ -41,7 +41,7 @@
     "address": "Jl. Gatot Subroto No.90, Bandung",
     "hours": "Senin - Minggu, 10.00 - 19.00",
     "contact": "0815-8888-9999",
-    "image": "images/smartlab.jpg"
+    "image": "assets/images/hardware4.JPG"
   },
   {
     "id": 5,
@@ -52,7 +52,7 @@
     "address": "Jl. Setiabudi No.30, Bandung",
     "hours": "Sabtu - Minggu, 08.00 - 15.00",
     "contact": "0819-5678-4321",
-    "image": "images/digitalworkshop.jpg"
+    "image": "assets/images/hardware5.JPG"
   },
   {
     "id": 6,
@@ -63,7 +63,7 @@
     "address": "Jl. P. Geusan Ulun No.123, Sumedang",
     "hours": "Senin - Sabtu, 09.00 - 17.00",
     "contact": "0851-7991-8600",
-    "image": "images/lpkma-sumedang.jpg"
+    "image": "assets/images/hardware6.JPG"
   },
   {
     "id": 7,
@@ -74,7 +74,7 @@
     "address": "Jl. Pangeran Santri No.78, Kotakulon, Sumedang",
     "hours": "Senin - Jumat, 08.30 - 16.30",
     "contact": "0851-0071-5499",
-    "image": "images/ganesha-pratama.jpg"
+    "image": "assets/images/hardware7.JPG"
   },
   {
     "id": 8,
@@ -85,7 +85,7 @@
     "address": "Jl. Terusan Sutami I No.36, Sukagalih, Bandung",
     "hours": "Senin - Jumat, 10.00 - 18.00",
     "contact": "022-6614726",
-    "image": "images/rumahit.jpg"
+    "image": "assets/images/hardware8.JPG"
   },
   {
     "id": 9,
@@ -96,17 +96,6 @@
     "address": "Jl. Sukabirus No.58, Bandung",
     "hours": "Senin - Sabtu, 09.00 - 17.00",
     "contact": "0812-9999-1234",
-    "image": "images/workshop-jaringan.jpg"
-  },
-  {
-    "id": 10,
-    "name": "Kursus TI Anak Muda Bandung",
-    "category": "Workshop",
-    "short": "Pelatihan coding dan robotics untuk remaja di Bandung.",
-    "description": "Kursus TI Anak Muda Bandung menyediakan kelas weekend untuk coding, robotics dan IoT bagi remaja. Lokasi di Bandung Barat.",
-    "address": "Komplek ITC Kebon Jeruk, Bandung Barat",
-    "hours": "Sabtu & Minggu, 10.00 - 14.00",
-    "contact": "0813-4444-2020",
-    "image": "images/kursus-ti-bandung.jpg"
+    "image": "assets/images/hardware9.AVIF"
   }
 ]
