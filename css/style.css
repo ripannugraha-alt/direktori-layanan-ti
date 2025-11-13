@@ -1,14 +1,16 @@
-/* ============================================
-   STYLE.CSS
-   Desain modern untuk Direktori & Workshop TI
-   Dibuat oleh Ripan Nugraha
-   ============================================ */
-
 /* ===== Font & Dasar ===== */
 body {
   font-family: 'Inter', 'Poppins', sans-serif;
   background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
   color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* biar footer selalu di bawah */
+}
+
+/* ===== Konten utama biar dorong footer ke bawah ===== */
+main, section {
+  flex: 1;
 }
 
 /* ===== Efek Smooth Scroll ===== */
@@ -101,6 +103,16 @@ a.btn:hover {
   left: -150px;
 }
 
+/* ===== Section Background (biar nggak nabrak card putih) ===== */
+section#layanan,
+section#workshop {
+  background: linear-gradient(to bottom right, #f1f5f9, #e2e8f0);
+  border-radius: 1.5rem;
+  padding: 4rem 2rem;
+  margin-top: 5rem;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.03);
+}
+
 /* ===== Workshop Card ===== */
 .workshop-card {
   background: white;
@@ -115,17 +127,21 @@ a.btn:hover {
   transform: translateY(-5px);
 }
 
-/* ===== Footer ===== */
+/* ===== Footer Selalu di Bawah ===== */
 footer {
   background: #0f172a;
   color: #cbd5e1;
+  margin-top: auto; /* dorong footer ke bawah */
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 footer a:hover {
   color: #06b6d4;
   transition: color 0.3s ease;
 }
 
-/* ===== Scrollbar Custom (opsional bonus) ===== */
+/* ===== Scrollbar Custom ===== */
 ::-webkit-scrollbar {
   width: 8px;
 }
