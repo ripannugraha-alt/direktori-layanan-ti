@@ -5,116 +5,280 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Direktori Layanan TI & Workshop Komputer</title>
   <link rel="icon" href="images/icon.png">
-  <!-- Tailwind CDN -->
+  
+  <!-- ===== FONT AWESOME (untuk icon) ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- ===== TAILWIND CSS CDN ===== -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- ===== KONFIGURASI WARNA TAILWIND KUSTOM ===== -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',   // biru utama
+            secondary: '#1e40af', // biru tua
+            accent: '#3b82f6',    // biru terang (aksen)
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* ===== Animasi scroll halus ===== */
+    * {
+      scroll-behavior: smooth;
+    }
+    
+    /* ===== Efek muncul halus (fade in) ===== */
+    .fade-in {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* ===== Hover untuk card layanan ===== */
+    .service-card {
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                  0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    /* ===== Background gradient untuk hero ===== */
+    .hero-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    /* ===== Efek loading skeleton (seolah memuat data) ===== */
+    .skeleton {
+      animation: skeleton-loading 1s linear infinite alternate;
+    }
+    @keyframes skeleton-loading {
+      0% { background-color: hsl(200, 20%, 80%); }
+      100% { background-color: hsl(200, 20%, 95%); }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
 
-  <!-- ===== HEADER NAVBAR ===== -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-      <h1 class="text-xl sm:text-2xl font-bold text-blue-700">
-        Direktori Layanan TI
-      </h1>
-      <nav class="hidden sm:flex gap-6 text-sm text-gray-600">
-        <a href="#" class="hover:text-blue-600">Beranda</a>
-        <a href="#" class="hover:text-blue-600">Tentang</a>
-        <a href="#" class="hover:text-blue-600">Kontak</a>
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 text-gray-800">
+
+  <!-- ========================================= -->
+  <!-- =============== HEADER ================== -->
+  <!-- ========================================= -->
+  <header class="bg-white/95 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+
+      <!-- Logo dan nama website -->
+      <div class="flex items-center gap-3">
+        <div class="bg-gradient-to-br from-blue-600 to-purple-600 p-2.5 rounded-lg shadow-lg">
+          <i class="fas fa-laptop-code text-white text-xl"></i>
+        </div>
+        <div>
+          <h1 class="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            Direktori Layanan TI
+          </h1>
+          <p class="text-xs text-gray-500 hidden sm:block">Temukan Solusi Teknologi Anda</p>
+        </div>
+      </div>
+      
+      <!-- Menu navigasi untuk desktop -->
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#" class="text-gray-700 hover:text-blue-600 flex items-center gap-2"><i class="fas fa-home"></i> Beranda</a>
+        <a href="#layanan" class="text-gray-700 hover:text-blue-600 flex items-center gap-2"><i class="fas fa-th-large"></i> Layanan</a>
+        <a href="#tentang" class="text-gray-700 hover:text-blue-600 flex items-center gap-2"><i class="fas fa-info-circle"></i> Tentang</a>
+        <a href="#kontak" class="text-gray-700 hover:text-blue-600 flex items-center gap-2"><i class="fas fa-envelope"></i> Kontak</a>
       </nav>
-      <button class="sm:hidden p-2 border rounded text-gray-600 hover:text-blue-700">
-        ☰
+      
+      <!-- Tombol menu mobile -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition">
+        <i class="fas fa-bars text-gray-700 text-xl"></i>
       </button>
+    </div>
+    
+    <!-- Menu navigasi versi mobile -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100">
+      <nav class="flex flex-col px-6 py-4 gap-3">
+        <a href="#" class="hover:text-blue-600 flex items-center gap-3 py-2"><i class="fas fa-home w-5"></i> Beranda</a>
+        <a href="#layanan" class="hover:text-blue-600 flex items-center gap-3 py-2"><i class="fas fa-th-large w-5"></i> Layanan</a>
+        <a href="#tentang" class="hover:text-blue-600 flex items-center gap-3 py-2"><i class="fas fa-info-circle w-5"></i> Tentang</a>
+        <a href="#kontak" class="hover:text-blue-600 flex items-center gap-3 py-2"><i class="fas fa-envelope w-5"></i> Kontak</a>
+      </nav>
     </div>
   </header>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-    <div class="max-w-6xl mx-auto text-center py-16 px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Temukan Bengkel & Workshop Komputer di Sekitarmu</h2>
-      <p class="text-blue-100 max-w-2xl mx-auto">
-        Direktori ini membantu kamu mencari layanan teknologi informasi — seperti servis komputer, pelatihan IT, dan workshop profesional di kota kamu.
-      </p>
-    </div>
-  </section>
-
-  <!-- ===== SEARCH & FILTER ===== -->
-  <section class="max-w-6xl mx-auto mt-8 px-4">
-    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center">
-      <input id="searchInput" 
-             type="text" 
-             placeholder="Cari nama layanan atau kata kunci..." 
-             class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+  <!-- ========================================= -->
+  <!-- =============== HERO SECTION ============ -->
+  <!-- ========================================= -->
+  <section class="hero-gradient text-white relative overflow-hidden">
+    <!-- Elemen dekoratif lingkaran blur -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+    
+    <!-- Isi utama hero -->
+    <div class="max-w-7xl mx-auto text-center py-20 px-6 relative z-10">
+      <div class="inline-block mb-6">
+        <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium">
+          <i class="fas fa-star text-yellow-300"></i> Platform Terpercaya di Indonesia
+        </div>
+      </div>
       
-      <select id="categorySelect" 
-              class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <option value="">Semua Kategori</option>
-        <option value="Hardware">Hardware</option>
-        <option value="Software">Software</option>
-        <option value="Training">Training</option>
-      </select>
+      <!-- Judul utama -->
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        Temukan Bengkel & Workshop<br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-pink-200">Komputer Terbaik</span>
+      </h2>
+      
+      <p class="text-lg sm:text-xl text-purple-100 max-w-3xl mx-auto mb-8 leading-relaxed">
+        Direktori lengkap layanan teknologi informasi untuk servis komputer, pelatihan IT, dan workshop profesional di kota Anda.
+      </p>
+      
+      <!-- Tombol CTA -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#layanan" class="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition flex items-center gap-2">
+          <i class="fas fa-search"></i> Cari Layanan Sekarang
+        </a>
+        <a href="#tentang" class="bg-purple-500/30 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold border-2 border-white/30 hover:bg-purple-500/50 transition flex items-center gap-2">
+          <i class="fas fa-play-circle"></i> Pelajari Lebih Lanjut
+        </a>
+      </div>
+      
+      <!-- Statistik -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto">
+        <div class="bg-white/10 rounded-xl p-4 border border-white/20">
+          <div class="text-3xl font-bold mb-1">5+</div>
+          <div class="text-sm text-purple-200">Layanan Terdaftar</div>
+        </div>
+        <div class="bg-white/10 rounded-xl p-4 border border-white/20">
+          <div class="text-3xl font-bold mb-1">100%</div>
+          <div class="text-sm text-purple-200">Terverifikasi</div>
+        </div>
+        <div class="bg-white/10 rounded-xl p-4 border border-white/20">
+          <div class="text-3xl font-bold mb-1">24/7</div>
+          <div class="text-sm text-purple-200">Informasi Akses</div>
+        </div>
+        <div class="bg-white/10 rounded-xl p-4 border border-white/20">
+          <div class="text-3xl font-bold mb-1">⭐ 4.8</div>
+          <div class="text-sm text-purple-200">Rating Rata-rata</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ===== GRID LIST ===== -->
-  <main class="max-w-6xl mx-auto mt-8 px-4 pb-20">
-    <div id="servicesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Data layanan akan muncul di sini lewat JS -->
+  <!-- ========================================= -->
+  <!-- ============ SEARCH & FILTER ============ -->
+  <!-- ========================================= -->
+  <section id="layanan" class="max-w-7xl mx-auto mt-12 px-6">
+    <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
+      <div class="flex flex-col lg:flex-row gap-4 items-center">
+        
+        <!-- Input pencarian -->
+        <div class="flex-1 relative w-full">
+          <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          <input id="searchInput" type="text" placeholder="Cari nama layanan, lokasi, atau kata kunci..." 
+                 class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 transition">
+        </div>
+        
+        <!-- Dropdown kategori -->
+        <div class="relative w-full lg:w-64">
+          <i class="fas fa-filter absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          <select id="categorySelect" class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 transition appearance-none bg-white cursor-pointer">
+            <option value="">📂 Semua Kategori</option>
+            <option value="Hardware">🔧 Hardware</option>
+            <option value="Software">💻 Software</option>
+            <option value="Training">🎓 Training</option>
+          </select>
+          <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- ============ GRID LAYANAN =============== -->
+  <!-- ========================================= -->
+  <main class="max-w-7xl mx-auto mt-12 px-6 pb-20">
+    <div id="servicesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Data layanan dari index.js akan muncul di sini -->
+      <div class="skeleton rounded-2xl h-96"></div>
+      <div class="skeleton rounded-2xl h-96"></div>
+      <div class="skeleton rounded-2xl h-96"></div>
+    </div>
+
+    <!-- Pesan jika tidak ada hasil -->
+    <div id="emptyState" class="hidden text-center py-20">
+      <div class="bg-gray-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fas fa-search text-gray-400 text-4xl"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-700 mb-3">Tidak Ada Hasil</h3>
+      <p class="text-gray-500 mb-6">Maaf, kami tidak menemukan layanan yang sesuai dengan pencarian Anda.</p>
+      <button onclick="location.reload()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+        <i class="fas fa-redo"></i> Reset Pencarian
+      </button>
     </div>
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="bg-white border-t py-6 mt-10">
-    <div class="max-w-6xl mx-auto text-center text-sm text-gray-600">
-      © 2025 Direktori Layanan TI. Dibuat oleh <span class="font-semibold">Ripan Nugraha</span>.
+  <!-- ========================================= -->
+  <!-- ================= FOOTER ================ -->
+  <!-- ========================================= -->
+  <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-20">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <!-- Brand -->
+        <div class="col-span-1 md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="bg-gradient-to-br from-blue-600 to-purple-600 p-2.5 rounded-lg">
+              <i class="fas fa-laptop-code text-white text-xl"></i>
+            </div>
+            <h4 class="text-xl font-bold">Direktori Layanan TI</h4>
+          </div>
+          <p class="text-gray-400 mb-4">Platform terpercaya untuk menemukan layanan teknologi informasi terbaik di Indonesia.</p>
+          <div class="flex gap-3">
+            <a href="#" class="bg-gray-700 hover:bg-blue-600 w-10 h-10 rounded-lg flex items-center justify-center transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="bg-gray-700 hover:bg-blue-600 w-10 h-10 rounded-lg flex items-center justify-center transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="bg-gray-700 hover:bg-blue-600 w-10 h-10 rounded-lg flex items-center justify-center transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="bg-gray-700 hover:bg-blue-600 w-10 h-10 rounded-lg flex items-center justify-center transition"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Tautan Cepat -->
+        <div>
+          <h5 class="font-bold text-lg mb-4">Tautan Cepat</h5>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-angle-right text-xs"></i> Beranda</a></li>
+            <li><a href="#layanan" class="text-gray-400 hover:text-white"><i class="fas fa-angle-right text-xs"></i> Layanan</a></li>
+            <li><a href="#tentang" class="text-gray-400 hover:text-white"><i class="fas fa-angle-right text-xs"></i> Tentang Kami</a></li>
+            <li><a href="#kontak" class="text-gray-400 hover:text-white"><i class="fas fa-angle-right text-xs"></i> Kontak</a></li>
+          </ul>
+        </div>
+
+        <!-- Kontak -->
+        <div>
+          <h5 class="font-bold text-lg mb-4">Hubungi Kami</h5>
+          <ul class="space-y-3 text-gray-400">
+            <li><i class="fas fa-map-marker-alt text-blue-400"></i> Jl. Merdeka No.123, Bandung</li>
+            <li><i class="fas fa-phone text-blue-400"></i> 0812-3456-7890</li>
+            <li><i class="fas fa-envelope text-blue-400"></i> info@direktoriti.id</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+        <p>© 2025 Direktori Layanan TI. Dibuat dengan <i class="fas fa-heart text-red-500"></i> oleh <span class="font-semibold text-white">Ripan Nugraha</span></p>
+      </div>
     </div>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
-  <script>
-    // Fungsi memuat data dari services.json
-    async function loadServices() {
-      const res = await fetch("services.json");
-      const data = await res.json();
-      const grid = document.getElementById("servicesGrid");
-
-      function render(list) {
-        grid.innerHTML = list.map(item => `
-          <a href="service.html?id=${item.id}" 
-             class="block bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-5">
-            <img src="${item.image}" alt="${item.name}" class="w-full h-40 object-cover rounded-lg mb-3">
-            <h3 class="font-semibold text-lg text-blue-700">${item.name}</h3>
-            <p class="text-sm text-gray-500 mb-2">${item.category} • ${item.address}</p>
-            <p class="text-sm text-gray-700">${item.short}</p>
-          </a>
-        `).join("");
-      }
-
-      // Render awal
-      render(data);
-
-      // Fitur pencarian dan filter
-      const searchInput = document.getElementById("searchInput");
-      const categorySelect = document.getElementById("categorySelect");
-
-      function applyFilter() {
-        const keyword = searchInput.value.toLowerCase();
-        const category = categorySelect.value;
-        const filtered = data.filter(item => {
-          const matchKeyword = item.name.toLowerCase().includes(keyword) ||
-                               item.short.toLowerCase().includes(keyword) ||
-                               item.description.toLowerCase().includes(keyword);
-          const matchCategory = category === "" || item.category === category;
-          return matchKeyword && matchCategory;
-        });
-        render(filtered);
-      }
-
-      searchInput.addEventListener("input", applyFilter);
-      categorySelect.addEventListener("change", applyFilter);
-    }
-
-    loadServices();
-  </script>
+  <!-- ===== EXTERNAL JS FILE ===== -->
+   <script src="js/index.js"></script>
 
 </body>
 </html>
