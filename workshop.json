@@ -8,7 +8,7 @@
     "mentor": "Ripan Nugraha",
     "location": "Coworking Space Sumedang",
     "rating": 4.9,
-    "image": "images/workshop-web.jpg"
+    "image": "assets/images/workshop1.AVIF"
   },
   {
     "id": 2,
@@ -19,7 +19,7 @@
     "mentor": "Aditiya Pratama",
     "location": "SMKN 1 Sumedang",
     "rating": 4.8,
-    "image": "images/workshop-db.jpg"
+    "image": "assets/images/workshop2.JPG"
   },
   {
     "id": 3,
@@ -30,6 +30,6 @@
     "mentor": "Dewi Ramadhani",
     "location": "Lab Komputer UNPAD Jatinangor",
     "rating": 4.7,
-    "image": "images/workshop-network.jpg"
+    "image": "assets/images/workshop3.AVIF"
   }
 ]
